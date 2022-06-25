@@ -29,6 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
         templateResolver.setPrefix("/WEB-INF/pages/");
         templateResolver.setSuffix(".html");
         return templateResolver;
+
     }
 
     @Bean

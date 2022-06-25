@@ -6,22 +6,22 @@
     <style>
         table th, table td {
             padding: 10px 5px;
-            font-family: sans-serif;
-            font-size: 14px;
+            font-family: "Bookman Old Style";
+            font-size: 15px;
             border-style: solid;
-            border-width: 1px;
-            background: ivory;
+            border-width: 2px;
+            background: #e28eff;
         }
         button {
             padding: 5px;
-            background-color: chartreuse;
+            background-color: #6d9aff;
         }
         .buttonDelete {
-            background: #fd3434;
+            background: #4bff77;
             color: white;
         }
         .buttonEdit {
-            background: gold;
+            background: #ff6f56;
             position: relative;
             left: 50%;
             transform: translate(-50%, 0);
@@ -29,19 +29,20 @@
     </style>
 </head>
 <body>
+<div align ="center">
 <h1>Users</h1>
 <button onclick="window.location.href = '/new';">Add new user</button>
 <br>
 <br>
 <table border="1">
     <tr>
-        <th th:width="50">UserId</th>
-        <th th:width="120">Name</th>
-        <th th:width="120">Surname</th>
-        <th th:width="50">Age</th>
-        <th th:width="150">Email</th>
-        <th th:width="50">Edit</th>
-        <th th:width="50">Delete</th>
+        <th th:width="70">UserId</th>
+        <th th:width="140">Name</th>
+        <th th:width="140">Surname</th>
+        <th th:width="70">Age</th>
+        <th th:width="180">Email</th>
+        <th th:width="70">Edit</th>
+        <th th:width="70">Delete</th>
     </tr>
     <tr th:each="users : ${users}">
 
@@ -62,5 +63,6 @@
         </td>
     </tr>
 </table>
+</div>
 </body>
 </html>

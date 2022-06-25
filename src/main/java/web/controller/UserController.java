@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -36,16 +37,12 @@ public class UserController {
     }
 
     @PostMapping("/new")
-    public String add(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "create";
-        } else {
+    public String add(@ModelAttribute("user") @Valid User user) {
             userService.addUser(user);
             return "redirect:/";
-        }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.POST)
     public String delete(@PathVariable("id") long id) {
         userService.removeUser(id);
         return "redirect:/";
@@ -57,13 +54,9 @@ public class UserController {
         return "edit";
     }
 
-    @PatchMapping("/edit")
-    public String update(@Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "edit";
-        } else {
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String update(@Valid User user) {
             userService.updateUser(user);
             return "redirect:/";
-        }
     }
 }

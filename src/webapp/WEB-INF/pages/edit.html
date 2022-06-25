@@ -5,7 +5,7 @@
     <title>Edit user</title>
     <style>
         td {
-            font-family: Arial, sans-serif;
+            font-family: "Bookman Old Style", sans-serif;
             font-size: 14px;
             padding: 10px 5px;
             border-style: solid;
@@ -14,22 +14,23 @@
             word-break: normal;
             border-color: #ccc;
             color: #333;
-            background-color: ivory;
+            background-color: chocolate;
         }
         .buttonEdit {
-            background: gold;
+            background: #e28eff;
             position: relative;
             left: 50%;
             transform: translate(-50%, 0);
         }
         div {
-            font-family: Arial, sans-serif;
+            font-family: "Bookman Old Style", sans-serif;
             font-size: 14px;
             color: #fd3434;
         }
     </style>
 </head>
 <body>
+<div align ="center">
 <h1>Edit user</h1>
 <form action="#" th:method="PATCH" th:action="@{/edit}" th:object="${user}">
     <table>
@@ -72,10 +73,13 @@
         <br>
         <tr>
             <td>
-                <input type="submit" class="buttonEdit" value="Edit user"/>
+                <input type="submit" class="buttonEdit" value="Edit user"
+                       onclick="window.location.href = '/users';"
+                />
             </td>
         </tr>
     </table>
 </form>
+</div>
 </body>
 </html>
