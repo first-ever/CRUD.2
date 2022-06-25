@@ -1,5 +1,6 @@
 package web.controller;
 
+import org.springframework.ui.ModelMap;
 import web.model.User;
 import web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +13,14 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-    private final UserService userService;
 
-    @Autowired()
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    private UserService userService;
 
-    @GetMapping("/")
-    public String users(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+
+    @GetMapping("/users")
+    public String printUsers(ModelMap model) {
+        model.addAttribute("users",userService.getAllUsers());
         return "users";
     }
 
